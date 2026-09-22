@@ -16,8 +16,9 @@ export async function generateStaticParams() {
   return categories.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const cat = db.getCategoryBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const cat = db.getCategoryBySlug(slug);
   if (!cat) return { title: "Category Not Found" };
   return {
     title: `${cat.name} — InvestAtlas India`,
@@ -25,12 +26,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function CategoryDetailPage({
+export default async function CategoryDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const category = db.getCategoryBySlug(params.slug);
+  const { slug } = await params;
+  const category = db.getCategoryBySlug(slug);
 
   if (!category) {
     notFound();

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { db } from "@/lib/data/store";
 import {
   Investment,
@@ -23,18 +24,16 @@ import Link from "next/link";
 import { ArrowLeft, Filter, SlidersHorizontal, Columns2 } from "lucide-react";
 
 
-export default function ComparePage({
-  searchParams,
-}: {
-  searchParams?: { slugs?: string };
-}) {
+export default function ComparePage() {
+  const searchParams = useSearchParams();
   const { selectedSlugs, addInvestment, removeInvestment } = useComparison();
   const allInvestments = db.getAllInvestments();
+  const urlSlugs = searchParams.get("slugs") || "";
 
   // Initialize from URL or stored state
   const [activeSlugs, setActiveSlugs] = useState<string[]>(() => {
-    const initial = searchParams?.slugs
-      ? searchParams.slugs
+    const initial = urlSlugs
+      ? urlSlugs
           .split(",")
           .filter((s) => allInvestments.some((i) => i.slug === s))
       : selectedSlugs;
@@ -43,15 +42,21 @@ export default function ComparePage({
 
   // Sync active slugs when searchParams change
   React.useEffect(() => {
-    if (searchParams?.slugs) {
-      const newSlugs = searchParams.slugs
+    if (urlSlugs) {
+      const newSlugs = urlSlugs
         .split(",")
-        .filter((s) => allInvestments.some((i) => i.slug === s));
+        .filter((slug: string) => allInvestments.some((i) => i.slug === slug));
       if (newSlugs.length > 0 && newSlugs.length <= 4) {
         setActiveSlugs(newSlugs);
       }
     }
-  }, [searchParams, allInvestments]);
+  }, [urlSlugs, allInvestments]);
+
+  React.useEffect(() => {
+    if (!urlSlugs) {
+      setActiveSlugs(selectedSlugs.slice(0, 4));
+    }
+  }, [selectedSlugs, urlSlugs]);
 
   const currentInvestments = activeSlugs
     .map((slug) => db.getInvestmentBySlug(slug))

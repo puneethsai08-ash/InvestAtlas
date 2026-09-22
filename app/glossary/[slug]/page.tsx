@@ -16,8 +16,9 @@ export async function generateStaticParams() {
   return glossary.map((t) => ({ slug: t.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const term = db.getGlossaryBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const term = db.getGlossaryBySlug(slug);
   if (!term) return { title: "Term Not Found" };
   return {
     title: `${term.term} — InvestAtlas India`,
@@ -25,12 +26,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function GlossaryDetailPage({
+export default async function GlossaryDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const term = db.getGlossaryBySlug(params.slug);
+  const { slug } = await params;
+  const term = db.getGlossaryBySlug(slug);
 
   if (!term) {
     notFound();

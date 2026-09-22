@@ -6,8 +6,14 @@ import { Sparkles, X, Send, BookOpen, AlertCircle, ArrowUpRight } from "lucide-r
 import Link from "next/link";
 import { AssistantResponse } from "@/lib/services/aiAssistantService";
 
-export function FloatingAssistant() {
-  const [isOpen, setIsOpen] = useState(false);
+export function FloatingAssistant({
+  initialOpen = false,
+  showTrigger = true,
+}: {
+  initialOpen?: boolean;
+  showTrigger?: boolean;
+}) {
+  const [isOpen, setIsOpen] = useState(initialOpen);
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState<AssistantResponse | null>(null);
@@ -45,18 +51,19 @@ export function FloatingAssistant() {
 
   return (
     <>
-      {/* Floating Pill Trigger */}
-      <motion.button
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-xs shadow-xl shadow-blue-500/25 cursor-pointer border border-white/20"
-      >
-        <Sparkles className="w-4 h-4 text-blue-200 animate-pulse" />
-        <span>Ask InvestAtlas</span>
-      </motion.button>
+      {showTrigger && (
+        <motion.button
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-xs shadow-xl shadow-blue-500/25 cursor-pointer border border-white/20"
+        >
+          <Sparkles className="w-4 h-4 text-blue-200 animate-pulse" />
+          <span>Ask InvestAtlas</span>
+        </motion.button>
+      )}
 
       {/* Floating Sheet Modal */}
       <AnimatePresence>

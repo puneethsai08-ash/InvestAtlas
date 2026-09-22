@@ -9,8 +9,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const article = investmentService.getLearningArticleBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = investmentService.getLearningArticleBySlug(slug);
   if (!article) return { title: "Lesson Not Found" };
 
   return {
@@ -19,15 +20,16 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function LessonPage({
+export default async function LessonPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const articles = investmentService
     .getAllLearningArticles()
     .sort((a, b) => a.sequence - b.sequence);
-  const article = articles.find((item) => item.slug === params.slug);
+  const article = articles.find((item) => item.slug === slug);
 
   if (!article) notFound();
 
