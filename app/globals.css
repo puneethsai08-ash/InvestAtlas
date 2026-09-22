@@ -1,26 +1,29 @@
 @import "tailwindcss";
 
+/* Dark variants are opt-in until the app has an explicit theme toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
-    /* High Contrast Premium Light Palette */
-    --background: #ffffff;
-    --foreground: #1a1a2e;
+    /* High-contrast editorial palette */
+    --background: #f8fafc;
+    --foreground: #102a43;
     --card: #ffffff;
-    --card-foreground: #1a1a2e;
+    --card-foreground: #102a43;
     --popover: #ffffff;
-    --popover-foreground: #1a1a2e;
-    --primary: #2563eb;
+    --popover-foreground: #102a43;
+    --primary: #0f766e;
     --primary-foreground: #ffffff;
-    --secondary: #f1f5f9;
-    --secondary-foreground: #1e293b;
-    --muted: #64748b;
-    --muted-foreground: #334155;
-    --accent: #0ea5e9;
-    --accent-foreground: #0c4a6e;
-    --border: #e2e8f0;
-    --border-subtle: #f1f5f9;
-    --ring: #2563eb;
-    --radius: 1rem;
+    --secondary: #e2e8f0;
+    --secondary-foreground: #243b53;
+    --muted: #52606d;
+    --muted-foreground: #334e68;
+    --accent: #2563eb;
+    --accent-foreground: #1e3a8a;
+    --border: #cbd5e1;
+    --border-subtle: #e2e8f0;
+    --ring: #0f766e;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -49,7 +52,7 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,7 +61,6 @@ body {
 h1, h2, h3, h4, .display-heading {
   letter-spacing: -0.025em;
   font-weight: 600;
-  color: var(--foreground);
 }
 
 h1 {
@@ -80,7 +82,6 @@ h3 {
 }
 
 p, li {
-  color: var(--foreground);
   line-height: 1.6;
 }
 
@@ -161,4 +162,16 @@ html {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Tailwind's neutral-400/500 defaults are too faint for dense informational UI. */
+@layer utilities {
+  .text-neutral-400 { color: var(--muted); }
+  .text-neutral-500 { color: var(--muted-foreground); }
+  .text-neutral-600 { color: var(--muted-foreground); }
+  .text-neutral-700 { color: var(--secondary-foreground); }
+  .text-neutral-800 { color: var(--foreground); }
+  .border-black\/\[0\.04\] { border-color: #d9e2ec; }
+  .border-black\/\[0\.06\] { border-color: #cbd5e1; }
+  .border-black\/5 { border-color: #d9e2ec; }
 }

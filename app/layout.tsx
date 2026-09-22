@@ -45,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-50 selection:bg-blue-500/10 selection:text-blue-900 dark:selection:bg-blue-500/20">
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-teal-600/15 selection:text-teal-950">
         <ComparisonProvider>
           <Header />
           <main className="flex-1">{children}</main>

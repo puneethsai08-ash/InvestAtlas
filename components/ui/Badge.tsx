@@ -14,9 +14,9 @@ export function Badge({
   ...props
 }: BadgeProps) {
   const variantStyles = {
-    default: "bg-black/5 text-neutral-800 border-black/5 dark:bg-white/10 dark:text-neutral-200 dark:border-white/10",
-    secondary: "bg-neutral-100 text-neutral-600 border-transparent dark:bg-neutral-800 dark:text-neutral-400",
-    outline: "bg-transparent text-neutral-700 border-neutral-300 dark:text-neutral-300 dark:border-neutral-700",
+    default: "bg-slate-100 text-slate-800 border-slate-200",
+    secondary: "bg-slate-200 text-slate-700 border-transparent",
+    outline: "bg-transparent text-slate-800 border-slate-300",
     success: "bg-emerald-50 text-emerald-700 border-emerald-200/60 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800/50",
     warning: "bg-amber-50 text-amber-700 border-amber-200/60 dark:bg-amber-950/40 dark:text-amber-300 dark:border-amber-800/50",
     danger: "bg-rose-50 text-rose-700 border-rose-200/60 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-800/50",

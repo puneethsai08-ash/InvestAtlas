@@ -7,6 +7,7 @@ import { Search, Compass, Columns2, BookOpen, HelpCircle, Calculator, ShieldChec
 import { useComparison } from "@/lib/context/ComparisonContext";
 import { SearchModal } from "@/components/ui/SearchModal";
 import { cn } from "@/lib/utils/cn";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
@@ -88,6 +89,7 @@ export function Header() {
 
           {/* Search Trigger & Right Actions */}
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <button
               onClick={() => setIsSearchOpen(true)}
               className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"

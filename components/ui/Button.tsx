@@ -25,15 +25,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-[#0071e3] text-white hover:bg-[#0077ed] active:bg-[#0062c4] shadow-sm shadow-blue-500/20",
+        "bg-teal-700 text-white hover:bg-teal-800 active:bg-teal-900 shadow-sm shadow-teal-700/20",
       secondary:
-        "bg-neutral-100 text-neutral-900 hover:bg-neutral-200/80 active:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700",
+        "bg-slate-200 text-slate-900 hover:bg-slate-300 active:bg-slate-400",
       outline:
-        "border border-neutral-300 bg-transparent text-neutral-800 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800",
+        "border border-slate-300 bg-white text-slate-800 hover:bg-slate-100 active:bg-slate-200",
       ghost:
-        "bg-transparent text-neutral-700 hover:bg-black/5 dark:text-neutral-300 dark:hover:bg-white/10",
+        "bg-transparent text-slate-700 hover:bg-slate-100",
       glass:
-        "apple-glass text-neutral-900 hover:bg-white/90 dark:text-white dark:hover:bg-white/20 shadow-sm",
+        "apple-glass text-slate-900 hover:bg-white shadow-sm",
       danger:
         "bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 shadow-sm shadow-rose-500/20",
     };
