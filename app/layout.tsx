@@ -45,10 +45,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-teal-600/15 selection:text-teal-950">
+      <body suppressHydrationWarning className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-teal-600/20 selection:text-teal-950">
         <ComparisonProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 bg-transparent">{children}</main>
           <Footer />
           <ComparisonDrawer />
           <FloatingAssistant />

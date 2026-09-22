@@ -40,20 +40,20 @@ export function CategoryGrid({
     <section className="py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
-          <span className="text-xs font-semibold text-[#0071e3] uppercase tracking-wider">
+            <span className="eyebrow">
             Taxonomy & Structure
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white mt-1">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--foreground)] mt-1">
             Major Investment Categories in India
           </h2>
-          <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 max-w-xl">
+          <p className="text-sm text-[var(--muted-foreground)] mt-1 max-w-xl">
             Every investment product belongs to a distinct legal, regulatory, and risk category. Explore by asset class.
           </p>
         </div>
 
         <Link
           href="/categories"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071e3] hover:underline"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:underline"
         >
           <span>View all category deep dives</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -75,32 +75,32 @@ export function CategoryGrid({
             >
               <Link
                 href={`/category/${cat.slug}`}
-                className="group flex flex-col justify-between h-full p-6 rounded-2xl bg-white dark:bg-[#161618] border border-black/[0.06] dark:border-white/[0.08] shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:border-[#0071e3]/30 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-200"
+                className="group flex flex-col justify-between h-full p-6 rounded-[var(--radius)] bg-[var(--card)] border border-[var(--border)] shadow-[0_10px_28px_-18px_rgba(16,42,67,0.5)] hover:border-teal-600/50 hover:shadow-[0_20px_38px_-18px_rgba(15,118,110,0.38)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-800 group-hover:scale-105 transition-transform">
+                    <div className="p-3 rounded-xl bg-[var(--secondary)] group-hover:scale-105 transition-transform">
                       {icon}
                     </div>
-                    <span className="px-2.5 py-1 text-[11px] font-semibold rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400">
+                    <span className="px-2.5 py-1 text-[11px] font-semibold rounded-full bg-[var(--secondary)] text-[var(--muted-foreground)]">
                       {count} {count === 1 ? "Option" : "Options"}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-[#0071e3] transition-colors mb-2">
+                  <h3 className="text-lg font-bold text-[var(--foreground)] group-hover:text-teal-700 dark:group-hover:text-teal-300 transition-colors mb-2">
                     {cat.name}
                   </h3>
 
-                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed line-clamp-3 mb-4">
+                  <p className="text-xs text-[var(--muted-foreground)] leading-relaxed line-clamp-3 mb-4">
                     {cat.shortDescription}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-black/[0.04] dark:border-white/[0.04] flex items-center justify-between text-xs text-neutral-500">
+                <div className="pt-4 border-t section-rule flex items-center justify-between text-xs text-[var(--muted)]">
                   <span className="truncate max-w-[180px] font-medium text-[11px]">
                     {cat.regulatoryAuthority}
                   </span>
-                  <span className="flex items-center gap-1 font-semibold text-[#0071e3] group-hover:translate-x-0.5 transition-transform">
+                  <span className="flex items-center gap-1 font-semibold text-teal-700 dark:text-teal-300 group-hover:translate-x-0.5 transition-transform">
                     Explore <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>

@@ -4,20 +4,20 @@ import { ShieldCheck, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-100/70 dark:bg-neutral-950 border-t border-black/5 dark:border-white/5 pt-12 pb-16 text-xs text-neutral-500 dark:text-neutral-400">
+    <footer className="mt-12 border-t border-[var(--border)] bg-transparent pt-14 pb-16 text-xs text-[var(--muted-foreground)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section: Mission & Official Stance */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-black/5 dark:border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b section-rule">
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-lg bg-[#0071e3] flex items-center justify-center text-white text-xs font-bold">
+              <div className="w-7 h-7 rounded-lg bg-teal-700 flex items-center justify-center text-white text-xs font-bold">
                 IA
               </div>
-              <span className="font-semibold text-sm text-neutral-900 dark:text-white">
+              <span className="font-semibold text-sm text-[var(--foreground)]">
                 InvestAtlas India
               </span>
             </div>
-            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-lg">
+            <p className="text-[var(--muted-foreground)] leading-relaxed max-w-lg">
               The beginner-first educational encyclopedia for every investment option in India. We normalize fragmented financial rules into standardized, plain-language comparisons backed by official government, RBI, SEBI, and PFRDA notifications.
             </p>
             <div className="flex items-center gap-2 pt-1 text-emerald-600 dark:text-emerald-400 font-medium text-[11px]">
@@ -28,27 +28,27 @@ export function Footer() {
 
           {/* Column: Discover & Compare */}
           <div className="space-y-2.5">
-            <span className="font-semibold text-neutral-900 dark:text-white text-xs uppercase tracking-wider">
+              <span className="font-semibold text-[var(--foreground)] text-xs uppercase tracking-wider">
               Discovery & Comparison
             </span>
             <ul className="space-y-1.5">
               <li>
-                <Link href="/explore" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/explore" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Explore All 35+ Investments
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/categories" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Browse by Category
                 </Link>
               </li>
               <li>
-                <Link href="/compare" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/compare" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Interactive Comparison Engine
                 </Link>
               </li>
               <li>
-                <Link href="/calculators" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/calculators" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Compounding & Inflation Visualizers
                 </Link>
               </li>
@@ -57,32 +57,32 @@ export function Footer() {
 
           {/* Column: Education & Governance */}
           <div className="space-y-2.5">
-            <span className="font-semibold text-neutral-900 dark:text-white text-xs uppercase tracking-wider">
+              <span className="font-semibold text-[var(--foreground)] text-xs uppercase tracking-wider">
               Knowledge & Governance
             </span>
             <ul className="space-y-1.5">
               <li>
-                <Link href="/learn" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/learn" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Beginner Curriculum (12 Modules)
                 </Link>
               </li>
               <li>
-                <Link href="/glossary" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/glossary" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   A–Z Financial Glossary
                 </Link>
               </li>
               <li>
-                <Link href="/sources" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/sources" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Authoritative Sources Directory
                 </Link>
               </li>
               <li>
-                <Link href="/methodology" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/methodology" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Content & Neutrality Policy
                 </Link>
               </li>
               <li>
-                <Link href="/admin" className="hover:text-[#0071e3] transition-colors">
+                <Link href="/admin" className="hover:text-teal-700 dark:hover:text-teal-300 transition-colors">
                   Data Operations Console (Admin)
                 </Link>
               </li>
@@ -92,11 +92,11 @@ export function Footer() {
 
         {/* Mandatory Educational Neutrality Disclaimer */}
         <div className="pt-8 space-y-3">
-          <div className="p-4 rounded-xl bg-neutral-200/50 dark:bg-neutral-900/50 border border-black/5 dark:border-white/5 space-y-1.5">
-            <p className="font-semibold text-neutral-700 dark:text-neutral-300">
+          <div className="p-4 rounded-xl bg-[var(--card)]/65 border border-[var(--border)] space-y-1.5">
+            <p className="font-semibold text-[var(--foreground)]">
               Regulatory & Educational Disclaimer
             </p>
-            <p className="text-[11px] leading-relaxed text-neutral-500 dark:text-neutral-400">
+            <p className="text-[11px] leading-relaxed text-[var(--muted-foreground)]">
               InvestAtlas India is an independent financial education portal and is <strong>NOT</strong> an investment adviser, broker, asset management company, or portfolio manager registered under SEBI. No content on this webapp constitutes personalized financial advice, a stock recommendation, or a solicitation to buy or sell securities. Rates, lock-ins, and taxation rules are governed by statutory notifications from the Government of India, RBI, SEBI, and PFRDA, and are subject to periodic regulatory amendments. Always consult a qualified professional before making capital commitments.
             </p>
           </div>

@@ -28,30 +28,30 @@ export function NeutralityBanner() {
 
   return (
     <section className="py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="p-8 md:p-10 rounded-3xl bg-white border border-slate-200 text-slate-900 shadow-[0_12px_36px_rgba(16,42,67,0.08)] relative overflow-hidden">
+      <div className="p-8 md:p-10 rounded-[1.25rem] bg-[var(--card)] border border-[var(--border)] text-[var(--foreground)] shadow-[0_18px_42px_-22px_rgba(16,42,67,0.55)] relative overflow-hidden">
         <div className="max-w-3xl space-y-4 mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/50 border border-teal-200 dark:border-teal-800 text-teal-800 dark:text-teal-200 text-xs font-semibold">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Our Neutrality Oath</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--foreground)]">
             Built to educate Indian beginners, never to sell financial products.
           </h2>
-          <p className="text-sm text-slate-700 leading-relaxed">
+          <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
             The Indian financial landscape is saturated with marketing disguised as education. InvestAtlas exists as a public, non-commercial discovery utility to ensure every citizen can understand their options objectively before taking action.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-slate-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t section-rule">
           {commitments.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div key={idx} className="space-y-2">
-                <div className="flex items-center gap-2 text-teal-800 font-semibold text-sm">
+                <div className="flex items-center gap-2 text-teal-800 dark:text-teal-200 font-semibold text-sm">
                   <Icon className="w-4 h-4" />
                   <span>{item.title}</span>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -59,7 +59,7 @@ export function NeutralityBanner() {
           })}
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+        <div className="mt-8 pt-6 border-t section-rule flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--muted-foreground)]">
           <span>Read our full editorial methodology and source verification framework.</span>
           <Link
             href="/methodology"

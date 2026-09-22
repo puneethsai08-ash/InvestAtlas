@@ -5,8 +5,7 @@
 
 @layer base {
   :root {
-    /* High-contrast editorial palette */
-    --background: #f8fafc;
+    --background: #f3f6f4;
     --foreground: #102a43;
     --card: #ffffff;
     --card-foreground: #102a43;
@@ -14,52 +13,62 @@
     --popover-foreground: #102a43;
     --primary: #0f766e;
     --primary-foreground: #ffffff;
-    --secondary: #e2e8f0;
+    --secondary: #e7eeeb;
     --secondary-foreground: #243b53;
     --muted: #52606d;
     --muted-foreground: #334e68;
-    --accent: #2563eb;
-    --accent-foreground: #1e3a8a;
-    --border: #cbd5e1;
-    --border-subtle: #e2e8f0;
+    --accent: #d97706;
+    --accent-foreground: #78350f;
+    --border: #c8d5d0;
+    --border-subtle: #dce7e2;
     --ring: #0f766e;
-    --radius: 0.75rem;
+    --radius: 0.875rem;
   }
 
   .dark {
-    /* High Contrast Premium Dark Palette */
-    --background: #0f172a;
+    --background: #0b1220;
     --foreground: #f8fafc;
-    --card: #1e293b;
+    --card: #111d2e;
     --card-foreground: #f8fafc;
-    --popover: #1e293b;
+    --popover: #132238;
     --popover-foreground: #f8fafc;
-    --primary: #60a5fa;
-    --primary-foreground: #0f172a;
-    --secondary: #334155;
+    --primary: #4fd1c5;
+    --primary-foreground: #062b2b;
+    --secondary: #1b2c43;
     --secondary-foreground: #e2e8f0;
     --muted: #94a3b8;
     --muted-foreground: #cbd5e1;
-    --accent: #38bdf8;
-    --accent-foreground: #0f172a;
-    --border: #334155;
-    --border-subtle: #1e293b;
-    --ring: #60a5fa;
+    --accent: #fbbf24;
+    --accent-foreground: #422006;
+    --border: #29415e;
+    --border-subtle: #1b2c43;
+    --ring: #4fd1c5;
   }
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
+  background-image: radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--primary) 8%, transparent), transparent 28rem), radial-gradient(circle at 92% 18%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 24rem);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
   letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  background: transparent;
+}
+
+button,
+[role="button"] {
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+}
+
 /* Apple Typography Optical Sizing & Tracking */
 h1, h2, h3, h4, .display-heading {
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   font-weight: 600;
 }
 
@@ -87,34 +96,37 @@ p, li {
 
 /* Glassmorphic materials - High Contrast */
 .apple-glass {
-  background: rgba(255, 255, 255, 0.92);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
   backdrop-filter: blur(24px) saturate(200%);
   -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--foreground) 8%, transparent);
+  background-image: linear-gradient(135deg, color-mix(in srgb, white 18%, transparent), transparent 42%);
 }
 
 .dark .apple-glass {
-  background: rgba(30, 41, 59, 0.92);
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  border-color: color-mix(in srgb, var(--border) 85%, transparent);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 42%);
 }
 
 /* Premium card with high contrast */
 .apple-card {
-  background: var(--card);
+  background: color-mix(in srgb, var(--card) 78%, transparent);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
   border: 1px solid var(--border);
-  border-radius: 1.25rem;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px -10px color-mix(in srgb, var(--foreground) 22%, transparent);
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1), border-color 180ms ease;
+  background-image: linear-gradient(135deg, color-mix(in srgb, white 16%, transparent), transparent 42%);
 }
 
 .apple-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 12px 32px -4px rgba(37, 99, 235, 0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -12px color-mix(in srgb, var(--primary) 35%, transparent);
+  transform: translateY(-3px);
 }
 
 /* Custom crisp scrollbar */
@@ -174,4 +186,67 @@ html {
   .border-black\/\[0\.04\] { border-color: #d9e2ec; }
   .border-black\/\[0\.06\] { border-color: #cbd5e1; }
   .border-black\/5 { border-color: #d9e2ec; }
+
+  .eyebrow {
+    color: var(--primary);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .section-rule {
+    border-color: color-mix(in srgb, var(--border) 72%, transparent);
+  }
+
+  /* Existing route surfaces inherit the same material without changing behavior. */
+  .bg-white {
+    background-color: color-mix(in srgb, var(--card) 78%, transparent);
+    background-image: linear-gradient(135deg, color-mix(in srgb, white 14%, transparent), transparent 44%);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+  }
+
+  .bg-neutral-50,
+  .bg-neutral-100,
+  .bg-neutral-200 {
+    background-color: color-mix(in srgb, var(--secondary) 72%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  .dark .dark\:bg-\[\#161618\],
+  .dark .dark\:bg-\[\#1c1c1e\],
+  .dark .dark\:bg-\[\#2c2c2e\] {
+    background-color: color-mix(in srgb, var(--card) 88%, transparent);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 44%);
+    backdrop-filter: blur(18px) saturate(145%);
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+  }
+
+  .dark .dark\:bg-neutral-800,
+  .dark .dark\:bg-neutral-900,
+  .dark .dark\:bg-slate-800,
+  .dark .dark\:bg-slate-900 {
+    background-color: color-mix(in srgb, var(--secondary) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  .surface-glass {
+    background: color-mix(in srgb, var(--card) 70%, transparent);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+    box-shadow: 0 12px 30px -18px color-mix(in srgb, var(--foreground) 35%, transparent), inset 0 1px 0 color-mix(in srgb, white 24%, transparent);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .apple-glass {
+    background: var(--card);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
